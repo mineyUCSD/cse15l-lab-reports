@@ -34,7 +34,54 @@ After it is installed, open the application, it should look something like
 
 The point of this section is to connect to a remote computer by way of the Internet
 
-First, make sure to download git for Windows if you are on Windows and do not have it installed
+To connect to the ieng6, you must also access your cs15l account and change the password.
+
+## CSE15L Account
+
+Follow this link to access you cse15L account [Account Lookup](https://sdacs.ucsd.edu/~icc/index.php)
+
+In this page, enter your UCSD username and PID
+![image](https://user-images.githubusercontent.com/130080241/233241452-92551f6f-78ab-4c47-86f9-626c26516829.png)
+
+---
+It should take you to a page like this
+
+![image](https://user-images.githubusercontent.com/130080241/233242068-008c6505-4523-487f-9573-42e7a986f6a6.png)
+
+Inside the gray box is your username. Remember it, write it down, maybe even copy and paste it to a file and for safe keeping. You will need to refer to it both when reseting your password and then in connecting to the remote server.
+
+---
+
+From the new page, select the Global Password Change tool
+
+![image](https://user-images.githubusercontent.com/130080241/233242589-cd8233c3-99ef-438a-897d-8ce8fc324aed.png)
+
+---
+
+Then Proceed to the Password Change tool 
+
+![image](https://user-images.githubusercontent.com/130080241/233242720-dfd750f5-3a50-4d15-8e16-62bbb56aaae6.png)
+
+---
+
+Enter your cs15L username! After you enter it, you should recieve an email to your UCSD email containing a link that will direct you to where you change your password
+
+![image](https://user-images.githubusercontent.com/130080241/233242812-a3bfad3d-9254-41a7-833f-c57273b44e5c.png)
+
+---
+
+Finally, enter a new password, and make sure it is good, and make sure you remember it!
+
+![image](https://user-images.githubusercontent.com/130080241/233243723-d8584343-7b16-415d-b344-69738680b11a.png)
+
+Assuming you followed the steps correctly, it is probable that you reset your password and now have access to your CS15L account!!!!
+**Congratulations.** 😄
+
+---
+
+## Git
+
+Next, make sure to download git for Windows if you are on Windows and do not have it installed
 
 ---
 

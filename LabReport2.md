@@ -37,7 +37,7 @@ Another variable in the Handler class is `String[] parameters` that splits the q
 
 In the StringServer main method,  it takes in a `String[]` arguments from the command line, called args. To start the server, I type `java StringServer` + whatever port is available, and that port number is the first element in args.
 
-There are also some methods that are called in handleRequest that seemssomewhat pertinent,  `getQuery()` and `getPath()`. I think tha tURIs have these methods in java, and they do quite a bit of the work in this program. `getPath()` gets the path part of the URI and converts it to a `String` so that it can be utilized in the program, like seeing if the path is empty, or contains some command. 
+There are also some methods that are called in handleRequest that seemssomewhat pertinent,  `getQuery()` and `getPath()`. I think that URIs have these methods in java, and they do quite a bit of the work in this program. `getPath()` gets the path part of the URI and converts it to a `String` so that it can be utilized in the program, like seeing if the path is empty, or contains some command. 
 
 The `getQuery()` method looks in the URI for a `?` and then any text after that it returned as a `String`, sort've like `getPath()`. This is useful because then you can use a query to even further specify a command, in this case asking to store and print a `String `.
 
@@ -61,19 +61,21 @@ Every time the page is refreshed, a new URI is passed into the program, so that 
 
 * Which methods in your code are called?
 
-`public String handleRequest(URI url)` is called in the `Server.java` file. I think that the file uses this method to see what should be done with the url that is entered into the search bar. In this case, the url entered is `http://localhost:3333/add-message?s=Communist`. Once the program gets the url input, it looks at the portions of the url using .getPath() and .getQuery(). Based on these methods, the program returns some `String`.
+`public String handleRequest(URI url)` is called in the `Server.java` file. I think that the file uses this method to see what should be done with the url that is entered into the search bar. In this case, the url entered is `http://localhost:3333/add-message?s=Communist`. Once the program gets the url input, it looks at the portions of the url using `.getPath()` and `.getQuery()`. Based on these methods, the program returns some `String`.
 
 * What are the relevant arguments to those methods, and the values of any relevant fields of the class?
 
 handleRequest() takes a url, and that is obtained from the search bar of the page that is opened by the server. 
 
-.getPath() and .getQuery() are methods that can be used to get information from URIs, described a bit more in the preliminary accidental, missreading instructions, section.
+`.getPath()` and `.getQuery()` are methods that can be used to get information from URIs, described a bit more in the preliminary accidental, missreading instructions, section.
 
 The field in the class `StringServer.java` is `private String storageString` which is initialized emptyily. After the methods are called, and assuming there is some qeury and path of the form `http://localhost:3333/add-message?s=<string>`, then `<string>` is concatentated to `storageString` and `storageString` is returned.
 
 * How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
 
 In this iteration, since it is the first time a String Query is added to the url, the `<string>` is added to `storageString` and is then returned. `storageString` goes from being empty to having the value `"Communist\n"`. `storageString` is remembered when new urls are entered into the server, as is demonstrated by the next screenshot.
+
+---
 
 ![image](https://user-images.githubusercontent.com/130080241/233535404-fdbbfa60-ef10-4051-9258-df7cbffea6b2.png)
 
@@ -88,14 +90,23 @@ Same methods.
 `equals()`
 
 * What are the relevant arguments to those methods, and the values of any relevant fields of the class?
-*
-`public String handleRequest(URI url)` takes a url from the searchbar. It will then be manipulated in 
+
+
+`public String handleRequest(URI url)` takes a url from the searchbar. The method uses that url and the other methods above to look at the URL and decide what `String` to return
+
+`url.getPath()` is used on the url `http://localhost:3333/add-message?s=Daughter` to get the path, so it returns `/add-message`
+
+`url.getQuery()` returns the query, everything after the ?, `s=Daughter`
+
+`split` is used on the query, and sticks everything separated by `=` into an array called `parameters`. it looks like `{"s","Daughter"}`
+
+`equals` is used to see if the query or patch matches what is expected for a `String` to be stored in `storageString'
 
 * How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
 
+After all of the methods are called, the program runs, given the new url inputted, `Daughter/n` is added to `stringStorage`. What is cool about this is that `stringStorage` still has the value `Communist/n` that was added from the last query inputed via url. So now, `stringStorage` has the the value `"Communist/nDaughter/n"` pretty neat. I wonder where this data is stored??? 
 
-
-
+---
 
 ### Demo
 
@@ -167,6 +178,7 @@ Symptoms:
 ![image](https://user-images.githubusercontent.com/130080241/233518811-653410d1-a35a-4a4e-826d-6697d7ff95da.png)
 
 The failure inducing input test fails, huh. The array {1,2} when reversed by the method gives the array {2,2} instead of {2,1}. This could be for a factor of reasons without looking at the code.
+
 ---
 
 **Before Code/ Bug riddled code:**

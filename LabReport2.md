@@ -148,11 +148,11 @@ import org.junit.*;
 public class ArrayTests {
 	@Test 
 	public void testReverseInPlace() {
-    int[] input1 = {1,2};
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{2,1}, input1);
+	    int[] input1 = {1,2};
+	    ArrayExamples.reverseInPlace(input1);
+	    assertArrayEquals(new int[]{2,1}, input1);
 	}
-
+}
 ```
 
 Here is a nonfailure-inducing input for the `ReverseInPlace()` method written as a JUnit test
@@ -164,10 +164,12 @@ import org.junit.*;
 public class ArrayTests {
 	@Test 
 	public void testReverseInPlace() {
-    int[] input1 = {3};
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{3}, input1);
+		int[] input1 = {3};
+		ArrayExamples.reverseInPlace(input1);
+		assertArrayEquals(new int[]{3}, input1);
 	}
+}
+
 
 ```
 

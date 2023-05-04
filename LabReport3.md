@@ -21,7 +21,6 @@ Input
 
 ```
 $ find ./technical -type d
-
 ```
 
 Output
@@ -38,7 +37,6 @@ Output
 ./technical/government/Media
 ./technical/government/Post_Rate_Comm
 ./technical/plos
-
 ```
 
 Using `-type d` will find all directories. Identifying all of the directories in `./technical` could be tedious if you are `cd`-ing and `ls`-ing to identify the directories,
@@ -51,7 +49,6 @@ Input
 
 ```
 $ find ./technical/911report/ -type f 
-
 ```
 
 Output
@@ -85,7 +82,6 @@ Input
  $ mkdir directory1
  $ mkdir directory2
  $ ls
- 
  ```
  
  Output
@@ -94,16 +90,13 @@ Input
  chapter-1.txt   chapter-12.txt    chapter-13.3.txt  chapter-2.txt  chapter-6.txt  chapter-9.txt  preface.txt
 chapter-10.txt  chapter-13.1.txt  chapter-13.4.txt  chapter-3.txt  chapter-7.txt  directory1
 chapter-11.txt  chapter-13.2.txt  chapter-13.5.txt  chapter-5.txt  chapter-8.txt  directory2
-
  ```
  So, I added two directories. Let's try  `-type f` to see if the previous output is unchanged(as added directories should be ignored by `-type f`)
  
  Input
  
  ```
-
  $ LabReport3:444$ find ./technical/911report/ -type f
- 
  ```
  
  Output
@@ -126,7 +119,7 @@ chapter-11.txt  chapter-13.2.txt  chapter-13.5.txt  chapter-5.txt  chapter-8.txt
 ./technical/911report/chapter-9.txt
 ./technical/911report/preface.txt
  ```
- Woopdy do! 🤙 The output is the same, the directories were ignored!
+ Woopdy do! 🤙 The output is the same, the directories were ignored! `-type f` appears useful when you'd need to find a specific type of file, rather than all of the files....
  
  ## `-cmin`
  
@@ -139,20 +132,17 @@ chapter-11.txt  chapter-13.2.txt  chapter-13.5.txt  chapter-5.txt  chapter-8.txt
  
  ```
  $ find ./technical/911report/ -cmin -15
-
  ```
  
  Output 
  
  ```
- 
  ./technical/911report/
 ./technical/911report/directory1
 ./technical/911report/directory2
- 
  ```
  
-So, less than 15 minutes ago, the directory `911report` was changed in the making of the directories `directory1` and `directory2`. That was such a swift way of identifying the changes I made to `./technical/911report/`!
+So, less than 15 minutes ago, the directory `911report` was changed in the making of the directories `directory1` and `directory2`. That was such a swift way of identifying the changes I made to `./technical/911report/`! I bet if I wanted to locate all of the files Ihad recently changed, this would be an excellent solution 🥸
 For the syntax of the command, doing `-cmin -15` means that it is less than 15 minutes. If it were instead `-cmin +15` the output would be different....
 
 **Ex 2 Which files were changed more than 15 minutes ago???**
@@ -160,7 +150,7 @@ For the syntax of the command, doing `-cmin -15` means that it is less than 15 m
 Input
 
 ```
-find ./technical/911report/ -cmin +15
+& find ./technical/911report/ -cmin +15
 ```
 
 Output
@@ -183,12 +173,10 @@ Output
 ./technical/911report/chapter-8.txt
 ./technical/911report/chapter-9.txt
 ./technical/911report/preface.txt
-
 ```
 
 Including the `+` before `15` changed find from looking for less than to looking for more than 15 minutes. It found all of the files, expect for the directories that I added less
-than 15 minutes ago. That is because I cloned `./technical` probably an hour ago at this point. I see use in this if you are trying to find files that you were recently
-working on that are in a directory, maybe if the directory is a bit cluttered and you cannot find the files you were changing just by scrolling through the list, or possibly you forgot!
+than 15 minutes ago. That is because I cloned `./technical` probably an hour ago at this point. This greater than functionality could be useful if you are trying to find files you haven't touched in forever, so you can possibly clean the clutter, or maybe change some of those untampered files fo fun!
 
 ## `-exec`
 
@@ -205,8 +193,6 @@ $ find ./technical/911report/ -name "preface.txt" -exec cat {} \;
 Output
 
 ```
-
-
             PREFACE
             We present the narrative of this report and the recommendations that flow from it to
                 the President of the United States, the United States Congress, and the American
@@ -310,7 +296,6 @@ Output
                 citizens to study, reflect-and act.
             Thomas H. Kean, chair
             Lee H. Hamilton, vice chair
-
 ```
 
 Wow! I was able to `cat` the file I searched for with `find`! It works for every file that is found, but I had to do only one because the output of all of those txt files would
@@ -322,8 +307,7 @@ command means, but without it `-exec` errors. Ima try another!
 Input
 
 ```
-find ./technical -name "*.txt" -exec grep "sadness" {} \;
-
+$ find ./technical -name "*.txt" -exec grep "sadness" {} \;
 ```
 
 Output
@@ -344,7 +328,87 @@ considerably substantial.
 ## `-delete`
 
 `-delete` is dangerous destruction. I must be wary as I use this command. It will delete whatever `find` finds, assuming it has permission. And I think assuming it is an empty directory?
-I normally use `rm -r
+I normally use `rm` but I think delete can work well in some unique situations
+
+**Ex 1 Deleting all `.txt` files in `911report`**
+
+Input
+
+```
+$ find ./technical/911report/ -name "*.txt" -delete
+$ cd ./technical/911report/
+$ ls
+```
+Output
+
+```
+
+directory1  directory2
+
+```
+All of the reports have been deleted! I used find to identify all of the `.txt` files and then used the `-delete` option to delete them all! All that remain are the directories I added to `911report` as find aptly did not identify those as `.txt` files. That is a nicer way of removing all of one sort of file type than, say, `rm` at least from how I've used that command. There is an option for rm called `rm -r` that will recursively delete files, but it wouldn't selectively delete only the `.txt` files like you can with `find` and `-delete`.
+
+**Ex 2 It is over, and I am done with `./technical`. I delete it.**
+
+Input
+
+```
+$ find ./LabReport3/technical -delete 
+$ cd LabReport3/
+$ ls
+```
+
+Output
+
+```
+#*crickets*
+
+```
+
+Deleting `./techincal` was succesful! It is gone, forveror, until I clone it again to practice my Skill Demo! `find` located the directory and all of the files in `./technical` and deleted them all. That is why when I `cd` to `LabReport3` (the parent directory of `technical`) and then ls, nothing is left. The directory is now empty, and all of the files are gone! Again, to do that with `rm -r` would also work, since it is deleting everything, but I believe I'd have to deal with some *Are you sure you want to delete this file?* prompts, so `-delete` is a bit nicer in that aspect. Also, this would give a good opportunity to use the `-empty` command, to make sure that `LabReport3` don't got nothing in it. 
+
+## Bonus
+
+Input
+
+```
+$ cd ~
+$ pwd
+$ find . -empty
+```
+
+Output
+
+```
+./.config/abrt
+./.local/share
+./perl5/stuff
+./.motd
+./Program.java
+./wavelet/.git/branches
+./wavelet/.git/refs/tags
+./wavelet/.git/objects/info
+./.pki/nssdb
+./LabReport3/.git/branches
+./LabReport3/.git/refs/tags
+./LabReport3/.git/objects/info
+
+```
+Wait..... `./LabReport3` isn't empty... even though I `ls`-ed it and nothing was printed, there are still contents in this folder??? Apparently, `.git`
+
+umm...
+
+I broke my terminal by `cat`-ing `./LabReports3/.git/index` I don't know why, a bunch of symbols and what looks like wacky characters. I guess that is it. Maybe I didn't delete everything??? 
+
+## Conclusion
+
+All in all, that was insightful. 
+
+### Resources
+
+[https://man7.org/linux/man-pages/man1/find.1.html](https://man7.org/linux/man-pages/man1/find.1.html)
+
+[Linux Find Command Examples by Linode](https://youtu.be/7M4gIOFcJvs)
 
 
  

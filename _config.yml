@@ -26,6 +26,7 @@ url: "https://mineyucsd.github.io/cse15l-lab-reports" # the base hostname & prot
 github_username:  mineyUCSD
 
 # Build settings
+theme: minima
 plugins:
   - jekyll-feed
 

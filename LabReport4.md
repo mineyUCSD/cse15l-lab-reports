@@ -19,10 +19,10 @@ I sortve wanna figure out how to make a keylogger, but also no. More typing for 
 ## Step 5
 
 **Lab7 Fork SSH link**
-![screenshotGithubCloneLink](images/Screenshot%202023-05-19%20110518.png)
+![screenshotGithubCloneLink](images/LabReport4Images/Screenshot%202023-05-19%20110518.png)
 
 **Terminal**
-![screenshotGitCloneTerminal](images/Screenshot%202023-05-19%20094812.png)
+![screenshotGitCloneTerminal](images/LabReport4Images/Screenshot%202023-05-19%20094812.png)
 
 **Keystrokes**
 
@@ -36,10 +36,10 @@ I cloned the `lab7` repository to my `ieng6` account directory. Using the `ssh` 
 ## Step 6
 
  **Locating Test Script**
-![locatingtestScript](images/screenshot_locatingtestscript.png)
+![locatingtestScript](images/LabReport4Images/screenshot_locatingtestscript.png)
 
 **JUnit Output**
-![testScriptOut](images/screenshot_testScriptOutput.png)
+![testScriptOut](images/LabReport4Images/screenshot_testScriptOutput.png)
 
 **Keystrokes**
 
@@ -82,13 +82,13 @@ public class ListExamplesTests {
 So, It appears that the error occurs in `testMerge2`. There must be an error with the merge function that permits the first test to pass but not the second one???? What is it!!!!!???
 
 **Opening `ListExamples.java` in `vim`** 
-![screenshot](images/screenshot_typingVimCommand.png)
+![screenshot](images/LabReport4Images/screenshot_typingVimCommand.png)
 
 **`vim` editor containing bugged out `ListExamples.java`**
-![screenshot](images/screenshot_bugFilledVimListExamples.png)
+![screenshot](images/LabReport4Images/screenshot_bugFilledVimListExamples.png)
 
 **`vim` editor after fixing the bug**
-![screenshot](images/screenshot_fixedListExamples.png)
+![screenshot](images/LabReport4Images/screenshot_fixedListExamples.png)
 
 **Keystrokes**
 
@@ -101,10 +101,10 @@ I opened up the bugged `ListExamples.java` with `vim`. Luckily, when I opened th
 ## Step 8
 
 **`test.sh` Command**\
-![screenshot](images/screenshot_testScriptCommand.png)
+![screenshot](images/LabReport4Images/screenshot_testScriptCommand.png)
 
 **`JUnit` Output**\
-![screenshot](images/screenshot_JUnitOutput2.png)
+![screenshot](images/LabReport4Images/screenshot_JUnitOutput2.png)
 
 
 **Keystrokes**
@@ -117,19 +117,19 @@ Straightforward for this step. I ran the bash script and the two tests got `Ok`.
 ## Step 9
 
 **`git status` Command**\
-![screenshot](images/screenshot_gitStatus.png)
+![screenshot](images/LabReport4Images/screenshot_gitStatus.png)
 
 **`git add` Command**\
-![screenshot](images/screenshot_gitAdd.png)
+![screenshot](images/LabReport4Images/screenshot_gitAdd.png)
 
 **`git commit` Command**\
-![screenshot](images/screenshot_gitCommit.png)
+![screenshot](images/LabReport4Images/screenshot_gitCommit.png)
 
 **`git push` Command**\
-![screenshot](images/screenshot_gitPush.png)
+![screenshot](images/LabReport4Images/screenshot_gitPush.png)
 
 **Github Repository after `push`**\
-![screenshot](images/screenshot_githubRepositoryPushed.png)
+![screenshot](images/LabReport4Images/screenshot_githubRepositoryPushed.png)
 
 **Keystrokes**
 
